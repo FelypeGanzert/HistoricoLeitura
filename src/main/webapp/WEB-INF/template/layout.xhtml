@@ -12,18 +12,19 @@
 	<h:outputStylesheet library="css" name="style.css" />
 	<h:outputStylesheet name="primeicons/primeicons.css"
 		library="primefaces" />
+	<h:outputStylesheet name="css/primeflex.css" />
 </h:head>
 <h:body>
 
 	<p:tabMenu activeIndex="#{param.i}" id="main-menu">
-		<p:menuitem value="Cadastro" outcome="/Index.xhtml"
-			icon="pi pi-user">
+		<p:menuitem value="Cadastro" outcome="/Form.xhtml" icon="pi pi-user">
 			<f:param name="i" value="1" />
 		</p:menuitem>
-		<p:menuitem value="Listagem" outcome="/Form.xhtml" icon="pi pi-list">
+		<p:menuitem value="Listagem" outcome="/Index.xhtml" icon="pi pi-list">
 			<f:param name="i" value="2" />
 		</p:menuitem>
-		<p:menuitem value="Sair" outcome="/Form.xhtml" icon="pi pi-arrow-circle-right">
+		<p:menuitem value="Sair" outcome="/Index.xhtml"
+			icon="pi pi-arrow-circle-right">
 			<f:param name="i" value="3" />
 		</p:menuitem>
 	</p:tabMenu>

@@ -1,4 +1,4 @@
-package repository;
+package com.felypeganzert.repository;
 
 import java.io.Serializable;
 import java.util.List;

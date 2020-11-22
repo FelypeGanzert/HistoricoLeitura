@@ -8,8 +8,7 @@ import javax.persistence.EntityTransaction;
 
 import com.felypeganzert.db.EntityManagerProducer;
 import com.felypeganzert.model.Livro;
-
-import repository.Livros;
+import com.felypeganzert.repository.Livros;
 
 public class TestesRepositorioLivros {
 
