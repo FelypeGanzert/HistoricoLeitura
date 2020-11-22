@@ -2,17 +2,16 @@ package com.felypeganzert.service;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import com.felypeganzert.model.Livro;
 import com.felypeganzert.repository.Livros;
 
-public class LivroServico implements Serializable {
+public class LivroCadastroServico implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Livros livros;
 	
-	public LivroServico(Livros livros) {
+	public LivroCadastroServico(Livros livros) {
 		this.livros = livros;
 	}
 	
@@ -51,33 +50,4 @@ public class LivroServico implements Serializable {
 			livros.insert(livro);
 		}
 	}
-	
-
-	public Livro findById(Integer id) {
-		return livros.findById(id);
-	}
-
-	public List<Livro> findAll() {
-		return livros.findAll();
-	}
-	
-	public List<Livro> findAllFromAuthorNameLike(String author){
-		return livros.findAllFromAuthorNameLike(author);
-	}
-	
-	public List<String> findAllDistinctAuthorNameLike(String author){
-		return livros.findAllDistinctAuthorNameLike(author);
-	}
-	
-
-	public void delete(Livro livro) {
-		livros.delete(livro);
-	}
-
-	public void deleteById(Integer id) {
-		livros.deleteById(id);
-	}
-	
-
-
 }

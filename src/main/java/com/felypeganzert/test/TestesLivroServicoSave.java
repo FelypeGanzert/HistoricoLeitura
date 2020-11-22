@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import com.felypeganzert.db.EntityManagerProducer;
 import com.felypeganzert.model.Livro;
 import com.felypeganzert.repository.Livros;
-import com.felypeganzert.service.LivroServico;
+import com.felypeganzert.service.LivroCadastroServico;
 
 public class TestesLivroServicoSave {
 	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -18,7 +18,7 @@ public class TestesLivroServicoSave {
 		EntityManager manager = EntityManagerProducer.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		Livros livros = new Livros(manager);
-		LivroServico livroServico = new LivroServico(livros);
+		LivroCadastroServico livroServico = new LivroCadastroServico(livros);
 		
 		// ===== Testes feitos com a intenção de gerar todas as exceções do método save
 		
@@ -45,7 +45,7 @@ public class TestesLivroServicoSave {
 		
 	}
 	
-	public static void saveException1(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException1(LivroCadastroServico livroServico, EntityTransaction tx) {
 		System.out.println("#1"); // titulo é null
 		try {
 			tx.begin();
@@ -75,7 +75,7 @@ public class TestesLivroServicoSave {
 		}
 	}
 	
-	public static void saveException2(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException2(LivroCadastroServico livroServico, EntityTransaction tx) {
 		System.out.println("#1"); // so foi inserido o número de páginas lidas
 		try {
 			tx.begin();
@@ -93,7 +93,7 @@ public class TestesLivroServicoSave {
 		}
 	}
 	
-	public static void saveException3(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException3(LivroCadastroServico livroServico, EntityTransaction tx) {
 		System.out.println("#1");
 		try {
 			tx.begin();
@@ -112,7 +112,7 @@ public class TestesLivroServicoSave {
 		}
 	}
 	
-	public static void saveException4(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException4(LivroCadastroServico livroServico, EntityTransaction tx) {
 		System.out.println("#1"); // Hoje (23/11/2020) - não deu erro (ok)
 		try {
 			tx.begin();
@@ -149,7 +149,7 @@ public class TestesLivroServicoSave {
 		}
 	}
 	
-	public static void saveException5(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException5(LivroCadastroServico livroServico, EntityTransaction tx) {
 		System.out.println("#1"); // Hoje (23/11/2020) - não deu erro (ok)
 		try {
 			tx.begin();
@@ -188,7 +188,7 @@ public class TestesLivroServicoSave {
 		}
 	}
 	
-	public static void saveException6(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException6(LivroCadastroServico livroServico, EntityTransaction tx) {
 		System.out.println("#1"); // Mesma data de inicio e termino - não deu erro (ok)
 		try {
 			tx.begin();
@@ -227,7 +227,7 @@ public class TestesLivroServicoSave {
 		}
 	}
 	
-	public static void saveException7(LivroServico livroServico, EntityTransaction tx) {
+	public static void saveException7(LivroCadastroServico livroServico, EntityTransaction tx) {
 		// sem data de inicio, mas com data de término (não deve gerar excessão)
 		System.out.println("#1");
 		try {
