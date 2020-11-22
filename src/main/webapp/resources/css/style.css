@@ -17,11 +17,67 @@ a{
 	text-decoration: none;
 }
 
+input[type='text']{
+	padding: 5px 10px;
+	box-shadow: none;
+}
+
+input[type='text']:focus{
+	box-shadow: #0077b6 0px 0px 2px;
+	border-color: #0077b6;
+}
+
+.form-item{
+	margin-bottom: 20px !important;
+}
+
+.form-item label {
+	margin-bottom: 0px !important;
+}
+
+.ui-datepicker-trigger{
+	background: #fff !important;
+}
+
+.btn-primary-color, .btn-secundary-color{
+	border: none;
+}
+
+
+.btn-primary-color span.ui-button-text{
+	margin: 0;
+	padding: 10px 15px;
+	background: #0077b6;
+	color: #fff;
+	text-shadow: none;
+}
+
+.btn-secundary-color span.ui-button-text{
+	margin: 0;
+	padding: 10px 15px;
+	background: #fb8500;
+	color: #fff;
+	text-shadow: none;
+}
+
+.btn-cancel-color{
+	border-color: #d62828;
+	border-width: 1px;
+}
+
+.btn-cancel-color span.ui-button-text{
+	background: #fff;
+	margin: 0;
+	padding: 10px 15px;
+	color: black;
+	text-shadow: none;
+}
 #conteudo{
 	padding: 15px;
 	width: 100%;
 	max-width: 1000px;
 	margin: 0 auto;
+	min-height: 100vh;
 }
 
 #main-menu{
@@ -60,10 +116,6 @@ a{
 	width: 25px;
 	height: 25px;
 	font-size: 25px;
-}
-
-div#conteudo{
-	min-height: 100vh;
 }
 
 footer{
