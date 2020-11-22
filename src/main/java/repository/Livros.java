@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.felypeganzert.model.Livro;
 
@@ -21,11 +22,16 @@ public class Livros implements Serializable {
 	}
 
 	public List<Livro> findAll() {
-		return entityManager.createQuery("from Livro", Livro.class).getResultList();
+		return entityManager.createQuery("FROM Livro", Livro.class).getResultList();
 	}
 	
-	public List<Livro> AllFromAuthor(String author){
-		return entityManager.createQuery("from Livro where autor = " + author, Livro.class).getResultList();
+	public List<Livro> findAllFromAuthorNameLike(String author){
+		return entityManager.createQuery("FROM Livro WHERE autor LIKE'" + author + "'", Livro.class).getResultList();
+	}
+	
+	public List<String> findAllDistinctAuthorNameLike(String author){
+		TypedQuery<String> query = entityManager.createQuery("SELECT DISTINCT autor FROM Livro WHERE autor LIKE '" + author + "'", String.class); 
+		return query.getResultList();
 	}
 
 	public void insert(Livro livro) {
