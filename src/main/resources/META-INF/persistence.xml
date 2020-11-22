@@ -5,7 +5,7 @@
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="leituras">
+	<persistence-unit name="Leituras">
 
 		<properties>
 			<property name="hibernate.jdbc.time_zone" value="UTC" />
@@ -20,6 +20,10 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
+
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
 
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL8Dialect" />

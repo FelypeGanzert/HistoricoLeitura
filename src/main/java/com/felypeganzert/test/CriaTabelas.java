@@ -1,11 +1,11 @@
 package com.felypeganzert.test;
 
-import javax.persistence.Persistence;
+import com.felypeganzert.db.EntityManagerProducer;
 
 public class CriaTabelas {
 
 	public static void main(String[] args) {
-		Persistence.createEntityManagerFactory("leituras");
-		}
+		EntityManagerProducer.getEntityManager();
+	}
 
 }
