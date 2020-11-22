@@ -7,7 +7,6 @@ import com.felypeganzert.model.Livro;
 import com.felypeganzert.repository.Livros;
 
 public class LivroServico implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 	
 	private Livros livros;

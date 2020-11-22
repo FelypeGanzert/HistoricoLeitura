@@ -10,11 +10,9 @@ import com.felypeganzert.model.Livro;
 import com.felypeganzert.repository.Livros;
 import com.felypeganzert.service.LivroServico;
 
-public class TestesLivroServico {
-
+public class TestesLivroServicoSave {
 	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	
-	// Os testes (métodos) estão comentados para não serem executados mais de uma vez
+	// Os testes/métodos estão comentados para não serem executados mais de uma vez
 	
 	public static void main(String[] args) {
 		EntityManager manager = EntityManagerProducer.getEntityManager();
