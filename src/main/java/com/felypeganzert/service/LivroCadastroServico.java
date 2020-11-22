@@ -3,6 +3,8 @@ package com.felypeganzert.service;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.inject.Inject;
+
 import com.felypeganzert.model.Livro;
 import com.felypeganzert.repository.Livros;
 
@@ -10,7 +12,8 @@ public class LivroCadastroServico implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Livros livros;
-	
+
+	@Inject
 	public LivroCadastroServico(Livros livros) {
 		this.livros = livros;
 	}
@@ -28,7 +31,8 @@ public class LivroCadastroServico implements Serializable {
 			throw new LivroException("O total de páginas é necessário para ser possível inserir as páginas lidas");
 		}
 		// Verifica se a quantidade de páginas lidas é maior que o número total de páginas
-		if(livro.getPaginasLidas() > livro.getPaginas()) {
+		if(livro.getPaginasLidas() != null && livro.getPaginas() != null &&
+				livro.getPaginasLidas() > livro.getPaginas()) {
 			throw new LivroException("A quantidade de páginas lidas não pode ser maior que a quantidade de páginas totais");
 		}
 		// Verifica se a data de início está no futuro

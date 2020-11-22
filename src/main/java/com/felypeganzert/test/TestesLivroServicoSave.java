@@ -15,7 +15,7 @@ public class TestesLivroServicoSave {
 	// Os testes/métodos estão comentados para não serem executados mais de uma vez
 	
 	public static void main(String[] args) {
-		EntityManager manager = EntityManagerProducer.getEntityManager();
+		EntityManager manager = (new EntityManagerProducer()).createEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		Livros livros = new Livros(manager);
 		LivroCadastroServico livroServico = new LivroCadastroServico(livros);

@@ -13,7 +13,7 @@ import com.felypeganzert.repository.Livros;
 public class TestesRepositorioLivros {
 
 	public static void main(String[] args) {
-		EntityManager manager = EntityManagerProducer.getEntityManager();
+		EntityManager manager = (new EntityManagerProducer()).createEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		Livros livros = new Livros(manager);
 
