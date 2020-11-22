@@ -18,7 +18,7 @@ public class LivroServico implements Serializable {
 	
 	public void save(Livro livro) throws LivroException {
 		// Verifica se o título do livro está vazio
-		if(livro.getTitulo().isEmpty()) {
+		if(livro.getTitulo() == null || livro.getTitulo().isEmpty()) {
 			throw new LivroException("Título não pode estar vazio");
 		}
 		// Verifica se foi colocado o número de páginas lidas, mas não o total
@@ -30,15 +30,15 @@ public class LivroServico implements Serializable {
 			throw new LivroException("A quantidade de páginas lidas não pode ser maior que a quantidade de páginas totais");
 		}
 		// Verifica se a data de início está no futuro
-		if(livro.getDataInicio().after(new Date())) {
+		if(livro.getDataInicio() != null && livro.getDataInicio().after(new Date())) {
 			throw new LivroException("Data de ínicio precisa ser hoje ou em alguma data passada.");
 		}
 		// Verifica se a data de término está no futuro
-		if(livro.getDataInicio().after(new Date())) {
+		if(livro.getDataTermino() != null && livro.getDataTermino().after(new Date())) {
 			throw new LivroException("Data de término precisa ser hoje ou em alguma data passada.");
 		}
 		// Veriifica se a data de término é anterior a data de início
-		if(livro.getDataTermino().before(livro.getDataInicio())) {
+		if(livro.getDataTermino() != null && livro.getDataInicio() != null && livro.getDataTermino().before(livro.getDataInicio())) {
 			throw new LivroException("Data de início precisa ser anterior à data de término.");
 		}
 		// Checa se o Livro já estava no banco de dados
