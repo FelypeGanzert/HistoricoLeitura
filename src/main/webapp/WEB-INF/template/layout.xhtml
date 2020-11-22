@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<f:facet name="first">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</f:facet>
+	<title><ui:insert name="titulo">Leituras</ui:insert></title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet name="primeicons/primeicons.css"
+		library="primefaces" />
+</h:head>
+<h:body>
+
+	<p:tabMenu activeIndex="#{param.i}" id="main-menu">
+		<p:menuitem value="Cadastro" outcome="/Index.xhtml"
+			icon="pi pi-user">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+		<p:menuitem value="Listagem" outcome="/Form.xhtml" icon="pi pi-list">
+			<f:param name="i" value="2" />
+		</p:menuitem>
+		<p:menuitem value="Sair" outcome="/Form.xhtml" icon="pi pi-arrow-circle-right">
+			<f:param name="i" value="3" />
+		</p:menuitem>
+	</p:tabMenu>
+
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<footer>
+		<a href="https://www.felypeganzert.com" target="_blank">Felype
+			Ganzert</a> | 2020
+	</footer>
+</h:body>
+</html>

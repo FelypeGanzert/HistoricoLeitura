@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-	<title>Olá JSF</title>
-</h:head>
-<h:body>
-	<h:form>
-		Form
-		<h:commandButton value="Dizer olá" action="#{olaBean.dizerOla}"/>
-	</h:form>
-</h:body>
-</html>
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<ui:define name="titulo">Teste #1</ui:define>
+	
+	<ui:define name="corpo">
+		<h1>Form</h1>
+		sdfedsds
+	</ui:define>
+</ui:composition>
