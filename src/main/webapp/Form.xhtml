@@ -1,64 +1,113 @@
 <!DOCTYPE html>
-<ui:composition template="/WEB-INF/template/layout.xhtml" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="titulo">Informações Livro</ui:define>
 
 	<ui:define name="corpo">
 
+
 		<h:form id="info-livro">
-			<h:inputHidden id="id" />
+
+
+			<p:messages showDetail="true" showSummary="true" />
+
 			<h3 style="padding: 10px 0px;">Informações do Livro</h3>
+
 			<div class="p-field p-grid form-item">
-				<p:outputLabel for="titulo" styleClass="p-col-fixed" style="width: 80px" value="Título:" />
+				<p:outputLabel for="id" styleClass="p-col-fixed" style="width: 80px"
+					value="Id:" />
 				<div class="p-col">
-					<p:inputText id="titulo" style="width: 100%; max-width: 600px" autocomplete="off" value="#{livroBean.livro.titulo}"/>
+					<p:inputText id="id" style="width: 100%; max-width: 100px"
+						autocomplete="off" value="#{livroBean.livro.id}" disabled="true">
+					</p:inputText>
+				</div>
+			</div>
+
+			<div class="p-field p-grid form-item">
+				<p:outputLabel for="titulo" styleClass="p-col-fixed"
+					style="width: 80px" value="Título:" />
+				<div class="p-col">
+					<p:inputText id="titulo" style="width: 100%; max-width: 600px"
+						autocomplete="off" value="#{livroBean.livro.titulo}">
+						<f:validateLength maximum="245" />
+					</p:inputText>
 				</div>
 			</div>
 
 			<div class="p-field p-grid">
-				<p:outputLabel for="autor" styleClass="p-col-fixed" style="width: 80px" value="Autor:" />
+				<p:outputLabel for="autor" styleClass="p-col-fixed"
+					style="width: 80px" value="Autor:" />
 				<div class="p-col">
-					<p:inputText id="autor" style="width: 100%; max-width: 400px" value="#{livroBean.livro.autor}"/>
+					<p:autoComplete id="autor" style="width: 100%; max-width: 400px"
+						value="#{livroBean.livro.autor}"
+						completeMethod="#{livroBean.getAutores}">
+						<f:validateLength maximum="50" />
+					</p:autoComplete>
 				</div>
 			</div>
 
+			<div class="p-field p-grid form-item">
+				<p:outputLabel for="capa" styleClass="p-col-fixed"
+					style="min-width: 80px" value="Capa" />
+				<div class="p-col">
+					<p:inputText id="capa" style="width: 100%; max-width: 600px"
+						autocomplete="off" value="#{livroBean.livro.urlCapa}" placeholder="URL da imagem">
+					</p:inputText>
+				</div>
+			</div>
 
-			<h3 style="padding: 10px 0px; border-top: dotted #333 1px;">Progresso da Leitura</h3>
+			<h3 style="padding: 10px 0px; border-top: dotted #333 1px;">Progresso
+				da Leitura</h3>
 			<div class="ui-fluid p-formgrid p-grid">
 				<div class="p-field p-col" style="max-width: 300px">
 					<p:outputLabel for="inicio" value="Início:" style="width: 80px" />
-					<p:calendar id="inicio" showOn="button" locale="br" style="width: 80px" autocomplete="off" value="#{livroBean.livro.dataInicio}"/>
+					<p:calendar id="inicio" showOn="button" locale="br"
+						style="width: 80px" autocomplete="off"
+						value="#{livroBean.livro.dataInicio}" placeholder="dd/mm/aaaa"/>
 				</div>
 
 				<div class="p-field p-col" style="max-width: 300px">
 					<p:outputLabel for="termino" value="Término:" style="width: 80px" />
-					<p:calendar id="termino" showOn="button" locale="br" style="width: 80px" autocomplete="off" value="#{livroBean.livro.dataTermino}"/>
+					<p:calendar id="termino" showOn="button" locale="br"
+						style="width: 80px" autocomplete="off"
+						value="#{livroBean.livro.dataTermino}" placeholder="dd/mm/aaaa"/>
 				</div>
 			</div>
 
 			<div class="ui-fluid p-formgrid p-grid" style="margin-bottom: 20px;">
 				<div class="p-field p-col" style="max-width: 300px">
 					<p:outputLabel for="paginas" value="Total de Páginas:" />
-					<p:inputText id="paginas" style="width: 100%" autocomplete="off" value="#{livroBean.livro.paginas}"/>
+					<p:inputText id="paginas" style="width: 100%" autocomplete="off"
+						value="#{livroBean.livro.paginas}">
+						<f:validateLength minimum="0" maximum="5" />
+					</p:inputText>
 				</div>
 
 				<div class="p-field p-col" style="max-width: 300px">
 					<p:outputLabel for="paginasLidas" value="Páginas lidas:" />
-					<p:inputText id="paginasLidas" style="width: 100%" autocomplete="off" value="#{livroBean.livro.paginasLidas}"/>
+					<p:inputText id="paginasLidas" style="width: 100%"
+						autocomplete="off" value="#{livroBean.livro.paginasLidas}">
+						<f:validateLength minimum="0" maximum="5" />
+					</p:inputText>
 				</div>
 			</div>
 
-			<p:commandButton value="Salvar" id="salvar" style="margin-right:20px;"
-				styleClass="ui-priority-primary btn-primary-color" action="#{livroBean.save}"/>
+			<p:commandButton value="Salvar" id="salvar"
+				style="margin-right:20px;"
+				styleClass="ui-priority-primary btn-primary-color"
+				action="#{livroBean.save}" update="@form"
+				binding="#{livroBean.botaoSalvar}" />
 
-			<p:commandButton value="Limpar" id="limpar" style="margin-right:20px;"
-				styleClass="ui-priority-primary btn-secundary-color" />
-
-			<p:commandButton value="Cancelar" id="cancelar" style="margin-right:20px;"
-				styleClass="ui-priority-primary btn-cancel-color" />
+			<p:commandButton type="reset" value="Limpar" id="limpar"
+				style="margin-right:20px;"
+				styleClass="ui-priority-primary btn-secundary-color" update="@form"
+				process="@this" actionListener="#{livroBean.limpar}" />
 
 		</h:form>
 

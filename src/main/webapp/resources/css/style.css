@@ -83,6 +83,9 @@ input[type='text']:focus{
 #main-menu{
 	background: #0077b6;
 }
+#main-menu div{
+	background: #0077b6;
+}
 
 #main-menu ul{
 	max-width: 1000px;

@@ -9,6 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "livro")
@@ -18,12 +23,20 @@ public class Livro implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
+	@NotNull
 	@Column(nullable = false)
 	private String titulo;
+	
+	@Size(max = 50)
 	@Column(length = 60)
 	private String autor;
+	
+	@Temporal(TemporalType.DATE)
 	@Column(columnDefinition = "DATETIME default null")
 	private Date dataInicio;
+	
+	@Temporal(TemporalType.DATE)
 	@Column(columnDefinition = "DATETIME default null")
 	private Date dataTermino;
 	private Integer paginas;

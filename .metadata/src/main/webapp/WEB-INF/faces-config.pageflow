@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16060369886580" configfile="/HistoricoLeituras/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16060369886580" configfile="/HistoricoLeituras/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="178" id="pf16060766723010" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16060766723011" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="Form.xhtml" x="338" y="178" id="pf16060766723012" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16060766723011" path="/Form.xhtml"/>
+  <links id="pf16060766723011" target="pf16060766723012" source="pf16060766723010" outcome="form"/>
+</pageflow:Pageflow>
