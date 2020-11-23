@@ -156,10 +156,14 @@ public class Livro implements Serializable{
 		String txt = "";
 		if(paginasLidas != null) {
 			txt += paginasLidas;
+		} else {
+			txt += "-";
 		}
 		txt += " / ";
 		if(paginas != null) {
 			txt += paginas;
+		} else {
+			txt += "-";
 		}
 		return txt;
 		

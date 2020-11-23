@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Livros</ui:define>
+
+	<ui:define name="corpo">
+		<div style="margin: 15px 0px;">
+			<h3>Lista de Livros Alternativa</h3>
+		</div>
+		<h:form>
+
+			<p:growl showDetail="true" showSummary="true" sticky="true" />
+
+			<p:dataGrid var="livro" value="#{listaBean.livrosCadastrados}"
+				columns="3" layout="grid" rows="15" paginator="true" id="livros"
+				paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks}  {NextPageLink} {RowsPerPageDropdown}"
+				currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} Livros"
+				rowsPerPageTemplate="6,15,30,60,90">
+
+				<f:facet name="header">
+           			Livros Cadastrados
+       			 </f:facet>
+
+				<p:panel header="#{livro.id} - #{livro.titulo}"
+					style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage value="#{livro.urlCapa}"
+							style="max-width: 100%; width: 200px;" />
+
+						<h:outputText value="#{livro.titulo}" />
+						<h:outputText value="#{livro.autor}" />
+						<h:outputText value="Início: #{livro.dataInicio}" />
+						<h:outputText value="Término: #{livro.dataTermino}" />
+						<h:outputText value="Progresso: #{livro.progresso}" />
+
+
+						<h:panelGroup>
+
+							<p:button title="Editar" icon="ui-icon-pencil"
+								outcome="/Form.xhtml"
+								style="background: #fff; border-color: #0077b6; font-size: 1rem; margin-right: 10px;">
+								<f:param name="id" value="#{livro.id}" />
+							</p:button>
+
+						</h:panelGroup>
+
+					</h:panelGrid>
+				</p:panel>
+
+			</p:dataGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

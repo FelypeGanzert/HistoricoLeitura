@@ -19,7 +19,7 @@
 		
 			<p:dataTable var="livro" value="#{listaBean.livrosCadastrados}"
 				rows="20" paginator="true"
-				paginatorTemplate="{CurrentPageReport} {PageLinks} {RowsPerPageDropdown}"
+				paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks}  {NextPageLink} {RowsPerPageDropdown}"
 				currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} livros"
 				rowsPerPageTemplate="5,10,15,20,25,50,100"
 				emptyMessage="Nenhum Livro para exibir...">
