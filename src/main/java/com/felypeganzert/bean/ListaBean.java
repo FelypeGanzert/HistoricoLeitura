@@ -27,6 +27,10 @@ public class ListaBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
+		this.list();
+	}
+	
+	public void list() {
 		livrosCadastrados = livros.findAll();
 	}
 
@@ -34,14 +38,16 @@ public class ListaBean implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
 			this.livros.delete(this.livroSelecionado);
-			this.getLivrosCadastrados();
-			context.addMessage(null, new FacesMessage("Livro excluído com sucesso!"));
+			this.list();
+			context.addMessage(null,
+					new FacesMessage("Livro - ["+
+							this.livroSelecionado.getId() + "] " +
+							this.livroSelecionado.getTitulo() + " - excluído com sucesso!", ""));
 		} catch (Exception e) {
 			FacesMessage mensagem = new FacesMessage(e.getMessage());
 			mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
 			context.addMessage(null, mensagem);
 		}
-
 	}
 
 	public List<Livro> getLivrosCadastrados() {

@@ -14,11 +14,15 @@
 			<h3>Lista de Livros</h3>
 		</div>
 		<h:form>
+			
+			<p:growl showDetail="true" showSummary="true" sticky="true"/>
+		
 			<p:dataTable var="livro" value="#{listaBean.livrosCadastrados}"
-				rows="10" paginator="true"
+				rows="20" paginator="true"
 				paginatorTemplate="{CurrentPageReport} {PageLinks} {RowsPerPageDropdown}"
 				currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} livros"
-				rowsPerPageTemplate="5,10,15,20,25,50,100">
+				rowsPerPageTemplate="5,10,15,20,25,50,100"
+				emptyMessage="Nenhum Livro para exibir...">
 				<p:column headerText="Id" style="width: 65px; text-align: center;"
 					sortBy="#{livro.id}">
 					<h:outputText value="#{livro.id}" />
@@ -37,14 +41,18 @@
 				<p:column headerText="Início"
 					style="width: 110px; text-align: center;"
 					sortBy="#{livro.dataInicio}">
-					<h:outputText value="#{livro.dataInicio}" />
+					<h:outputText value="#{livro.dataInicio}">
+						 <f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
 				</p:column>
 
 
 				<p:column headerText="Término"
 					style="width: 110px; text-align: center;"
 					sortBy="#{livro.dataTermino}">
-					<h:outputText value="#{livro.dataTermino}" />
+					<h:outputText value="#{livro.dataTermino}">
+						 <f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Progresso"
@@ -63,12 +71,27 @@
 
 				<p:column headerText="Excluir"
 					style="width: 75px; text-align: center;">
-					<p:commandButton icon="ui-icon-trash" title="Excluir"
+
+					<p:commandButton type="button" icon="ui-icon-trash" title="Excluir"
 						style="background: #fff; border-color: red; font-size: 1rem;"
-						process="@this" update="@form" action="#{listaBean.excluir}">
-						<f:setPropertyActionListener value="#{livro}"
-							target="#{listaBean.livroSelecionado}" />
-					</p:commandButton>
+						onclick="PF('cd').show()" />
+						
+					<p:confirmDialog message="Tem certeza?"
+						header="Excluir Livro" severity="alert"
+						widgetVar="cd">
+						<p:commandButton value="Manter" onclick="PF('cd').hide();"
+							style="background: #fff; border-color: green; font-size: 1rem;"
+							type="button" />
+						<p:commandButton value="Excluir"
+							process="@this" update="@form" action="#{listaBean.excluir}"
+							style="background: #fff; border-color: red; font-size: 1rem;"
+							oncomplete="PF('cd').hide()">
+								<f:setPropertyActionListener value="#{livro}"
+									target="#{listaBean.livroSelecionado}" />
+						</p:commandButton>
+						
+					</p:confirmDialog>
+
 				</p:column>
 
 			</p:dataTable>
