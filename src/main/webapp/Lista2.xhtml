@@ -37,8 +37,16 @@
 
 						<h:outputText value="#{livro.titulo}" />
 						<h:outputText value="#{livro.autor}" />
-						<h:outputText value="Início: #{livro.dataInicio}" />
-						<h:outputText value="Término: #{livro.dataTermino}" />
+						<h:panelGroup>
+							Início: <h:outputText value="#{livro.dataInicio}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</h:panelGroup>
+						<h:panelGroup>
+							Término: <h:outputText value="#{livro.dataTermino}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</h:panelGroup>
 						<h:outputText value="Progresso: #{livro.progresso}" />
 
 
