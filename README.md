@@ -20,7 +20,7 @@ Por não ter estudado JUnit ainda (já ouvi falar que é o melhor para isso), fo
 Eu até tentei fazer um deploy dela no Heroku vendo alguns vídeos e lendo alguns artigos, mas por estar em ambiente Windows isso não foi uma tarefa nenhum um pouco fácil, então devido ao tempo ela irá rodar somente localmente..
 
 Para visualizar a interface e ver a aplicação funcionando sem precisar de nenhuma configuração, basta conferir o vídeo abaixo:
-https://youtu.be/BXXoVrUupLI
+https://youtu.be/dzRVWJshpSs
 
 Resumo dos itens cumpridos:
 * [X] **A. Criar uma aplicação java web utilizando JavaServer Faces (JSF)**
