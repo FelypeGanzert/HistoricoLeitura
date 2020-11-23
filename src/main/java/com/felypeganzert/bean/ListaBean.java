@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,7 +12,7 @@ import com.felypeganzert.model.Livro;
 import com.felypeganzert.repository.Livros;
 
 @Named("listaBean")
-@RequestScoped
+@ViewScoped
 public class ListaBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,22 +30,6 @@ public class ListaBean implements Serializable {
 	
 	public void list() {
 		livrosCadastrados = livros.findAll();
-	}
-
-	public void excluir() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		try {
-			this.livros.delete(this.livroSelecionado);
-			this.list();
-			context.addMessage(null,
-					new FacesMessage("Livro - ["+
-							this.livroSelecionado.getId() + "] " +
-							this.livroSelecionado.getTitulo() + " - excluído com sucesso!", ""));
-		} catch (Exception e) {
-			FacesMessage mensagem = new FacesMessage(e.getMessage());
-			mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
-			context.addMessage(null, mensagem);
-		}
 	}
 
 	public List<Livro> getLivrosCadastrados() {

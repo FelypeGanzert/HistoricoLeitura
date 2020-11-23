@@ -16,9 +16,9 @@
 			<h3>Lista de Livros</h3>
 		</div>
 		<h:form>
-			
-			<p:growl showDetail="true" showSummary="true" sticky="true"/>
-		
+
+			<p:growl showDetail="true" showSummary="true" sticky="true" />
+
 			<p:dataTable var="livro" value="#{listaBean.livrosCadastrados}"
 				rows="20" paginator="true"
 				paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks}  {NextPageLink} {RowsPerPageDropdown}"
@@ -31,12 +31,12 @@
 				</p:column>
 
 				<p:column headerText="Título" sortBy="#{livro.titulo}"
-					style="width: 160px;">
+					style="width: 200px;">
 					<h:outputText value="#{livro.titulo}" />
 				</p:column>
 
 				<p:column headerText="Autor" sortBy="#{livro.autor}"
-					style="width: 160px;">
+					style="width: 180px;">
 					<h:outputText value="#{livro.autor}" />
 				</p:column>
 
@@ -44,7 +44,7 @@
 					style="width: 110px; text-align: center;"
 					sortBy="#{livro.dataInicio}">
 					<h:outputText value="#{livro.dataInicio}">
-						 <f:convertDateTime pattern="dd/MM/yyyy" />
+						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
 
@@ -53,7 +53,7 @@
 					style="width: 110px; text-align: center;"
 					sortBy="#{livro.dataTermino}">
 					<h:outputText value="#{livro.dataTermino}">
-						 <f:convertDateTime pattern="dd/MM/yyyy" />
+						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
 
@@ -69,31 +69,6 @@
 						style="background: #fff; border-color: #0077b6; font-size: 1rem;">
 						<f:param name="id" value="#{livro.id}" />
 					</p:button>
-				</p:column>
-
-				<p:column headerText="Excluir"
-					style="width: 75px; text-align: center;">
-
-					<p:commandButton type="button" icon="ui-icon-trash" title="Excluir"
-						style="background: #fff; border-color: red; font-size: 1rem;"
-						onclick="PF('cd').show()" />
-						
-					<p:confirmDialog message="Tem certeza?"
-						header="Excluir Livro" severity="alert"
-						widgetVar="cd">
-						<p:commandButton value="Manter" onclick="PF('cd').hide();"
-							style="background: #fff; border-color: green; font-size: 1rem;"
-							type="button" />
-						<p:commandButton value="Excluir"
-							process="@this" update="@form" action="#{listaBean.excluir}"
-							style="background: #fff; border-color: red; font-size: 1rem;"
-							oncomplete="PF('cd').hide()">
-								<f:setPropertyActionListener value="#{livro}"
-									target="#{listaBean.livroSelecionado}" />
-						</p:commandButton>
-						
-					</p:confirmDialog>
-
 				</p:column>
 
 			</p:dataTable>

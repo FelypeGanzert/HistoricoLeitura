@@ -11,7 +11,16 @@ Dessa forma, foi cumprido os requisitos mínimos da seleção A e B. Além disso
 
 O item G também foi cumprido, pois está sendo utilizado PrimeFaces nas telas de Cadastro e Listagem pois ele deixa o trabalho com a interface muito mais prático e possui métodos excelentes para lidar com dados em suas tabelas. Porém para ter um visual um pouco mais moderno foram feitas alterações manuais no CSS tanto inline como em um arquivo style.css.
 
+Existem duas opções de listagem dos livros:
+#1: Uma tabela padrão, ideal para Desktop;
+#2: Em formato grid, exibe a imagm da capa do livro e é responsivél em celulares.
+
 Por não ter estudado JUnit ainda (já ouvi falar que é o melhor para isso), foram realizados testes manuais através das classes CriaTabelas, TestesRepositorioLivros e TestesLivroServicoSave para checar se todas as regras de negócio adicionais estavam funcionando de acordo. Além de ter sido executado diversos testes diretamente na aplicação web pelo Desktop e Smartphone. Dessa forma, foi cumprido parte do item H.
+
+Eu até tentei fazer um deploy dela no Heroku vendo alguns vídeos e lendo alguns artigos, mas por estar em ambiente Windows isso não foi uma tarefa nenhum um pouco fácil, então devido ao tempo ela irá rodar somente localmente..
+
+Para visualizar a interface e ver a aplicação funcionando sem precisar de nenhuma configuração, basta conferir o vídeo abaixo:
+https://youtu.be/BXXoVrUupLI
 
 Resumo dos itens cumpridos:
 * [X] **A. Criar uma aplicação java web utilizando JavaServer Faces (JSF)**
@@ -19,7 +28,6 @@ Resumo dos itens cumpridos:
 * [X] C. Utilizar Hibernate e JPA
 * [X] G. Utilizar Primefaces
 * [X] H. Utilizar testes de unidades
-* [ ] J. Publicar projeto no heroku
 
 ---
 
