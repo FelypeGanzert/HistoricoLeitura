@@ -5,18 +5,19 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:o="http://omnifaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
 	<f:metadata>
 		<o:viewParam name="id" value="#{livroBean.livro}" />
 		<f:viewAction action="#{livroBean.prepararCadastro}" />
 	</f:metadata>
+	
+	<ui:param name="activeIndex" value="1" />
 
 	<ui:define name="titulo">Informações Livro</ui:define>
 
 	<ui:define name="corpo">
-	
+
 		<h:form id="info-livro">
 
 			<p:messages showDetail="true" showSummary="true" />
@@ -24,7 +25,8 @@
 			<h3 style="padding: 10px 0px;">Informações do Livro</h3>
 
 			<h:inputHidden value="#{livroBean.livro.id}" />
-			
+
+
 			<div class="p-field p-grid form-item">
 				<p:outputLabel for="titulo" styleClass="p-col-fixed"
 					style="width: 80px" value="Título:" />
@@ -103,9 +105,26 @@
 
 			<p:commandButton type="reset" value="Limpar" id="limpar"
 				style="margin-right:20px;"
-				styleClass="ui-priority-primary btn-secundary-color" update="@form"
+				styleClass="ui-priority-primary btn-secundary-color"
+				rendered="#{livroBean.livro.id == null}" update="@form"
 				process="@this" actionListener="#{livroBean.limpar}" />
 
+			<p:commandButton value="Excluir" id="excluir"
+				style="margin-right:20px; background: #fff; border-color: red;"
+				styleClass="ui-priority-primary .btn-delete-color;"
+				onclick="PF('cd').show()" rendered="#{livroBean.livro.id != null}" />
+
+			<p:confirmDialog message="Tem certeza?" header="Excluir Livro"
+				severity="alert" widgetVar="cd">
+				<p:commandButton value="Manter" onclick="PF('cd').hide();"
+					style="background: #fff; border-color: green; font-size: 1rem;"
+					type="button" />
+				<p:commandButton value="Excluir" update="@form" process="@this"
+					actionListener="#{livroBean.excluir}"
+					style="background: #fff; border-color: red; font-size: 1rem;"
+					oncomplete="PF('cd').hide()" />
+			</p:confirmDialog>
+			
 		</h:form>
 
 	</ui:define>

@@ -18,18 +18,18 @@
 
 	<h:form id="main-menu">
 		<p:tabMenu activeIndex="#{param.i}" id="div-menu">
-		<p:menuitem value="" outcome="/Index.xhtml" icon="pi pi-home">
-				<f:param name="i" value="1" />
+		<p:menuitem value="Início" outcome="/Index.xhtml" icon="pi pi-home">
+				<f:param name="i" value="0" />
 			</p:menuitem>
 			<p:menuitem value="Cadastro" outcome="/Cadastro.xhtml" icon="pi pi-user">
-				<f:param name="i" value="2" />
+				<f:param name="i" value="1" />
 			</p:menuitem>
 			<p:menuitem value="Lista 1" outcome="/Lista.xhtml" icon="pi pi-list">
-				<f:param name="i" value="3" />
+				<f:param name="i" value="2" />
 			</p:menuitem>
 			<p:menuitem value="Lista 2" outcome="/Lista2.xhtml"
 				icon="pi pi-list">
-				<f:param name="i" value="4" />
+				<f:param name="i" value="3" />
 			</p:menuitem>
 		</p:tabMenu>
 	</h:form>

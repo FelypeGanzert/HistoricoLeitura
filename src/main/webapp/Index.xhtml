@@ -4,13 +4,19 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
+
+	<ui:param name="activeIndex" value="0" />
+
 	<ui:define name="titulo">Teste #1</ui:define>
-	
+
 	<ui:define name="corpo">
-	<h:messages showDetail="true" showSummary="false" />
+		<h:messages showDetail="true" showSummary="false" />
 		<h1>Histórico de Leituras</h1>
-		<p style="margin-bottom: 15px;">Projeto criado para participar da seleção como Desenvolvedor Java da ESIG Software e Consultoria.</p>
-		<p style="margin-bottom: 15px;">É possível cadastrar, editar e excluir um livro. Foram criadas duas telas de listagem: a Lista 1 é uma tabela padrão, já a 2 exibe a foto da capa do livro além de ser mais adequada para smartphones.</p>
+		<p style="margin-bottom: 15px;">Projeto criado para participar da
+			seleção como Desenvolvedor Java na ESIG Software e Consultoria.</p>
+		<p style="margin-bottom: 15px;">É possível cadastrar, editar e
+			excluir um livro. Foram criadas duas telas de listagem: a Lista 1 é
+			uma tabela padrão, já a 2 exibe a foto da capa do livro além de ser
+			mais adequada para smartphones.</p>
 	</ui:define>
 </ui:composition>

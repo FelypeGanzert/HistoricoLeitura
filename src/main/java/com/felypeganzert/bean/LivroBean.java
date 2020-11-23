@@ -3,10 +3,10 @@ package com.felypeganzert.bean;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -16,7 +16,7 @@ import com.felypeganzert.service.LivroCadastroServico;
 import com.felypeganzert.service.LivroException;
 
 @Named("livroBean")
-@RequestScoped
+@ViewScoped
 public class LivroBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class LivroBean implements Serializable {
 			} else {
 				context.addMessage(null, new FacesMessage("Livro - " + livro.getTitulo() + " - SALVO com sucesso!", ""));
 			}
-			this.livro = new Livro();
+			this.limpar();
 		} catch (LivroException e) {
 			System.out.println(e.getMessage());
 			FacesMessage mensagem = new FacesMessage(e.getMessage(), "");
@@ -57,6 +57,20 @@ public class LivroBean implements Serializable {
 	public void prepararCadastro() {
 		if (this.livro == null) {
 			this.livro = new Livro();
+		}
+	}
+	
+	public void excluir() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			this.livros.delete(this.livro);
+			this.limpar();
+			context.addMessage(null,
+					new FacesMessage("Livro excluído com sucesso!", ""));
+		} catch (Exception e) {
+			FacesMessage mensagem = new FacesMessage(e.getMessage());
+			mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
+			context.addMessage(null, mensagem);
 		}
 	}
 
@@ -79,6 +93,6 @@ public class LivroBean implements Serializable {
 
 	public void setBotaoSalvar(HtmlCommandButton botaoSalvar) {
 		this.botaoSalvar = botaoSalvar;
-	}
-
+	}	
+	
 }

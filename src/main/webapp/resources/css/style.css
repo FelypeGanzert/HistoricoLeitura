@@ -60,9 +60,18 @@ input[type='text']:focus{
 	text-shadow: none;
 }
 
+.btn-delete-color span.ui-button-text{
+	margin: 0;
+	padding: 10px 15px;
+	background: #0077b6;
+	color: #fff;
+	text-shadow: none;
+}
+
 .btn-cancel-color{
 	border-color: #d62828;
 	border-width: 1px;
+	background: #fff;
 }
 
 .btn-cancel-color span.ui-button-text{
@@ -95,7 +104,12 @@ input[type='text']:focus{
 }
 
 #main-menu ul li{
-	margin-right: 15px;
+	margin-right: 10px;
+	font-weight: normal;
+}
+
+#main-menu ul li.ui-state-active a{
+	font-weight: bold;
 }
 
 #main-menu ul li:last-child{
@@ -109,6 +123,7 @@ input[type='text']:focus{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 15px;
 }
 
 #main-menu ul li a span{
@@ -116,9 +131,9 @@ input[type='text']:focus{
 }
 
 #main-menu ul li a span.ui-icon{
-	width: 25px;
-	height: 25px;
-	font-size: 25px;
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
 }
 
 footer{
