@@ -152,4 +152,17 @@ public class Livro implements Serializable{
 		return true;
 	}
 	
+	public String getProgresso() {
+		String txt = "";
+		if(paginasLidas != null) {
+			txt += paginasLidas;
+		}
+		txt += " / ";
+		if(paginas != null) {
+			txt += paginas;
+		}
+		return txt;
+		
+	}
+	
 }
